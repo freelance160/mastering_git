@@ -1,17 +1,16 @@
-name: Trigger Practice
+name: Runner Practice
 
-on: 
-  push:
-    branches: [main]
-  workflow_dispatch:  
+on: [push, workflow_dispatch]
 
 jobs: 
-  show_info: 
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Show basic info
-        run: |
-          echo "This was pushed to: ${{ github.ref }}"
-          echo "Triggered by: ${{ github.actor }}"
-          echo "Commit message: ${{ github.event.head_commit.message }}"
+    runs-on-windows:
+      runs-on: windows-latest
+      steps:
+        - name: Say hi from Windows 
+          run: echo "Running on a windows machine"
+    
+    runs-on-linux:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Say hi from Linux
+          run: echo "Running on a Linux machine"
