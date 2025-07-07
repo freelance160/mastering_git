@@ -1,16 +1,15 @@
-name: Runner Practice
+name: Matrix Practice
 
 on: [push, workflow_dispatch]
 
 jobs: 
-    runs-on-windows:
-      runs-on: windows-latest
-      steps:
-        - name: Say hi from Windows 
-          run: echo "Running on a windows machine"
-    
-    runs-on-linux:
+    test-matrix:
       runs-on: ubuntu-latest
+      
+      strategy:
+        matrix:
+          node-version: [14, 20]
+    
       steps:
-        - name: Say hi from Linux
-          run: echo "Running on a Linux machine"
+        - name: Show version
+          run: echo "Testing on Node.js version ${{ matrix.node-version }}"
