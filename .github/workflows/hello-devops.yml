@@ -1,11 +1,17 @@
-name: Hello DevOps
+name: Trigger Practice
 
-on: push 
+on: 
+  push:
+    branches: [main]
+  workflow_dispatch:  
 
 jobs: 
-  say_hello: 
+  show_info: 
     runs-on: ubuntu-latest
 
     steps:
-      - name: Greet
-        run: echo "Hello DevOps"
+      - name: Show basic info
+        run: |
+          echo "This was pushed to: ${{ github.ref }}"
+          echo "Triggered by: ${{ github.actor }}"
+          echo "Commit message: ${{ github.event.head_commit.message }}"
