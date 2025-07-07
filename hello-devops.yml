@@ -1,0 +1,11 @@
+name: Hello DevOps
+
+on: push 
+
+jobs: 
+  say_hello: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Greet
+        run: echo "Hello DevOps"
