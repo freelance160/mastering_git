@@ -7,10 +7,8 @@ jobs:
       runs-on: ubuntu-latest
       
       steps:
-        - name: 
-          Step 1: Checkout Repo Code
+        - name: Step 1 - Checkout Repo Code
           uses: actions/checkout@v4
 
-        - name: 
-          Step 2: Use my custom action
+        - name: Step 2 - Use my custom action
           uses: ./.github/actions/whoami
