@@ -3,4 +3,5 @@ description: "Prints info about who triggered the workflow"
 runs:
   using: "composite"
   steps:
-    - run: echo "Triggered by ${{ github.actor }} on branch ${{ github.ref }}"
+    - shell: bash
+      run: echo "Triggered by ${{ github.actor }} on branch ${{ github.ref }}"
