@@ -7,8 +7,6 @@ jobs:
       runs-on: ubuntu-latest
       
       steps:
-        - name: checkout composite action
-          uses: actions/checkout 
-          
+
         - name: Use my custom action
-          uses: ./.github/actions/whoami
+          uses: action/.github/actions/whoami
