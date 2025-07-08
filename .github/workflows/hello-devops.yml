@@ -1,15 +1,19 @@
-name: Matrix Practice
+name: Use Actions
 
 on: [push, workflow_dispatch]
 
 jobs: 
-    test-matrix:
+    use-actions:
       runs-on: ubuntu-latest
       
-      strategy:
-        matrix:
-          node-version: [14, 20]
-    
       steps:
-        - name: Show version
-          run: echo "Testing on Node.js version ${{ matrix.node-version }}"
+        - name: Step 1: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Step 2: Setp Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: 20
+
+        - name: Step 3: Show node version
+          run: node -v
