@@ -3,17 +3,9 @@ name: Use Actions
 on: [push, workflow_dispatch]
 
 jobs: 
-    use-actions:
+    custom-action-job:
       runs-on: ubuntu-latest
       
       steps:
-        - name: Step 1 - Checkout code
-          uses: actions/checkout@v4
-
-        - name: Step 2 - Setp Node.js
-          uses: actions/setup-node@v4
-          with:
-            node-version: 20
-
-        - name: Step 3 - Show node version
-          run: node -v
+        - name: Use my custom action
+          uses: ./.github/actions/whoami

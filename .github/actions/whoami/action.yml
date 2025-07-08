@@ -1,0 +1,6 @@
+name: "Who am I"
+description: "Prints info about who triggered the workflow"
+runs:
+  using: "composite"
+  steps:
+    - run: echo "Triggered by ${{ github.actor }} on branch ${{ github.ref }}"
