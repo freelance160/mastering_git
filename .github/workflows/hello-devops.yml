@@ -3,12 +3,9 @@ name: Use Actions
 on: [push, workflow_dispatch]
 
 jobs: 
-    custom-action-job:
+    show-secret:
       runs-on: ubuntu-latest
       
       steps:
-        - name: Checkout Repo Code
-          uses: actions/checkout@v4
-
-        - name: Use my custom action
-          uses: ./.github/actions/whoami
+        - name: Print secret to log (DO NOT do this in real life!)
+          uses: echo "My secret is ${{ secrets.SUPER_SECRET }}"
