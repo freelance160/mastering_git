@@ -1,4 +1,4 @@
-name: Use Actions
+name: Secrets Demo
 
 on: [push, workflow_dispatch]
 
@@ -8,4 +8,4 @@ jobs:
       
       steps:
         - name: Print secret to log (DO NOT do this in real life!)
-          uses: echo "My secret is ${{ secrets.SUPER_SECRET }}"
+          run: echo "My secret is ${{ secrets.SUPER_SECRET }}"
