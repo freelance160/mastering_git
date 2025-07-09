@@ -1,16 +1,20 @@
-name: Conditional Demo
+name: Passing Data Demo
 
 on: [push, workflow_dispatch]
 
 jobs: 
-    test:
+    build:
       runs-on: ubuntu-latest
+      outputs:
+        version: ${{ steps.setver.outputs.ver }}
       steps:
-        - run: echo "Running tests"
+        - name: Set Version Tag
+          id: setver
+          run: echo "ver=v1.0.${{ github.run_number }}" >> $GITHUB_OUTPUT
 
     deploy:
       runs-on: ubuntu-latest
-      needs: test
-      if: github.ref == 'refs/heads/main'
+      needs: build
       steps:
-        - run: echo "Deploying only from main branch"
+        - name: Use Version Tag
+          run: echo "Deploying version ${{ needs.build.outputs.version }}"
